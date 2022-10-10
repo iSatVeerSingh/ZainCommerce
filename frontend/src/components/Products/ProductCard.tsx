@@ -1,18 +1,34 @@
+import ButtonAddCart from '../Buttons/ButtonAddCart';
 import CustomImg from '../Images/CustomImg';
 import Price from './Price';
 import Rating from './Rating';
 import Stock from './Stock';
 
 type ProductCardProps = {
+  imageUrl: string;
+  rating?: string | number;
+  title: string;
+  actualPriceOld?: string | number;
+  sellingPrice: string | number;
+  inStock?: boolean;
   view: 'grid' | 'list';
   pageType: string;
 };
 
-const ProductCard = ({ view, pageType }: ProductCardProps) => {
+const ProductCard = ({
+  view,
+  pageType,
+  imageUrl,
+  rating,
+  title,
+  actualPriceOld,
+  sellingPrice,
+  inStock,
+}: ProductCardProps) => {
   return (
     <div className='border border-ecom-01 p-2 flex flex-col'>
       <Stock
-        inStock
+        inStock={inStock}
         className={`${
           pageType === 'products' && view === 'list' ? 'self-end' : 'self-start'
         }`}
@@ -30,15 +46,24 @@ const ProductCard = ({ view, pageType }: ProductCardProps) => {
                 : 'h-32'
             }`}
           >
-            <CustomImg src='/images/pro1.png' />
+            <CustomImg src={imageUrl} />
           </div>
-          <Rating view={view} pageType={pageType} />
+          <Rating view={view} pageType={pageType} rating={rating} />
         </div>
         <div className={`mt-1`}>
-          <p className={`leading-tight`}>
-            MSI CREATOR 17 A10SFS-240AU 17 UHD 4K HDR Thin Bezel Intel 10th{' '}
-          </p>
-          <Price view={view} />
+          <p className={`leading-tight`}>{title}</p>
+          <Price
+            view={view}
+            actualPrice={actualPriceOld}
+            sellingPrice={sellingPrice}
+          />
+          <ButtonAddCart
+            className={`${
+              pageType === 'products' && view === 'list'
+                ? 'hidden sm:flex mt-2'
+                : 'hidden'
+            }`}
+          />
         </div>
       </div>
     </div>

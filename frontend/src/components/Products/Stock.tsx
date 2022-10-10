@@ -1,7 +1,7 @@
 import { BsFillCheckCircleFill, BsStarFill } from 'react-icons/bs';
 
 type StockProps = {
-  inStock: boolean;
+  inStock?: boolean;
   className?: string;
 };
 

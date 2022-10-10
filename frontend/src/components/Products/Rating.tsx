@@ -3,9 +3,10 @@ import { AiFillStar } from 'react-icons/ai';
 type RatingProps = {
   pageType: string;
   view: string;
+  rating?: string | number;
 };
 
-const Rating = ({ view, pageType }: RatingProps) => {
+const Rating = ({ view, pageType, rating }: RatingProps) => {
   return (
     <div
       className={`${
@@ -21,7 +22,7 @@ const Rating = ({ view, pageType }: RatingProps) => {
         <AiFillStar />
         <AiFillStar />
       </div>
-      <span className='text-ecom-02 text-sm'>Rating (5)</span>
+      <span className='text-ecom-02 text-sm'>Rating ({rating})</span>
     </div>
   );
 };

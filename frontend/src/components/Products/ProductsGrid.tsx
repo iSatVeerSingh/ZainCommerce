@@ -18,25 +18,48 @@ const ProductsGrid = ({ pageType }: ProductsGridProps) => {
               ? 'grid-cols-2 sm:grid-cols-3 xl:grid-cols-4'
               : 'grid-cols-1'
             : 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'
-          // pageType === 'products'
-          //   ? 'lg:grid-cols-3 xl:grid-cols-4'
-          //   : 'lg:grid-cols-4 xl:grid-cols-5'
         }`}
       >
-        <ProductCard view={view} pageType={pageType} />
-        <ProductCard view={view} pageType={pageType} />
-        <ProductCard view={view} pageType={pageType} />
-        <ProductCard view={view} pageType={pageType} />
-        <ProductCard view={view} pageType={pageType} />
-        <ProductCard view={view} pageType={pageType} />
-        <ProductCard view={view} pageType={pageType} />
-        <ProductCard view={view} pageType={pageType} />
-        <ProductCard view={view} pageType={pageType} />
-        <ProductCard view={view} pageType={pageType} />
-        <ProductCard view={view} pageType={pageType} />
-        <ProductCard view={view} pageType={pageType} />
-        <ProductCard view={view} pageType={pageType} />
-        <ProductCard view={view} pageType={pageType} />
+        <ProductCard
+          view={view}
+          pageType={pageType}
+          imageUrl='/images/pro1.png'
+          title='MSI CREATOR 17 A10SFS-240AU 17 UHD 4K HDR Thin Bezel Intel 10th'
+          inStock={true}
+          sellingPrice={12348}
+          actualPriceOld={32232}
+          rating={5}
+        />
+        <ProductCard
+          view={view}
+          pageType={pageType}
+          imageUrl='/images/pro1.png'
+          title='MSI CREATOR 17 A10SFS-240AU 17 UHD 4K HDR Thin Bezel Intel 10th'
+          inStock={true}
+          sellingPrice={12348}
+          actualPriceOld={32232}
+          rating={5}
+        />
+        <ProductCard
+          view={view}
+          pageType={pageType}
+          imageUrl='/images/pro1.png'
+          title='MSI CREATOR 17 A10SFS-240AU 17 UHD 4K HDR Thin Bezel Intel 10th'
+          inStock={true}
+          sellingPrice={12348}
+          actualPriceOld={32232}
+          rating={5}
+        />
+        <ProductCard
+          view={view}
+          pageType={pageType}
+          imageUrl='/images/pro1.png'
+          title='MSI CREATOR 17 A10SFS-240AU 17 UHD 4K HDR Thin Bezel Intel 10th'
+          inStock={true}
+          sellingPrice={12348}
+          actualPriceOld={32232}
+          rating={5}
+        />
       </div>
     </div>
   );
