@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../services/store';
-import SectionHeading from '../Sections/SectionHeading';
-import ProductCardSmall from './ProductCardSmall';
+import ProductCard from './ProductCard';
 
 type ProductsGridProps = {
   pageType: 'products' | string;
@@ -24,23 +23,20 @@ const ProductsGrid = ({ pageType }: ProductsGridProps) => {
           //   : 'lg:grid-cols-4 xl:grid-cols-5'
         }`}
       >
-        <ProductCardSmall view={view} />
-        <ProductCardSmall view={view} />
-        <ProductCardSmall view={view} />
-        <ProductCardSmall view={view} />
-        <ProductCardSmall view={view} />
-        <ProductCardSmall view={view} />
-        <ProductCardSmall view={view} />
-        <ProductCardSmall view={view} />
-        <ProductCardSmall view={view} />
-        <ProductCardSmall view={view} />
-        <ProductCardSmall view={view} />
-        <ProductCardSmall view={view} />
-        <ProductCardSmall view={view} />
-        <ProductCardSmall view={view} />
-        <ProductCardSmall view={view} />
-        <ProductCardSmall view={view} />
-        <ProductCardSmall view={view} />
+        <ProductCard view={view} pageType={pageType} />
+        <ProductCard view={view} pageType={pageType} />
+        <ProductCard view={view} pageType={pageType} />
+        <ProductCard view={view} pageType={pageType} />
+        <ProductCard view={view} pageType={pageType} />
+        <ProductCard view={view} pageType={pageType} />
+        <ProductCard view={view} pageType={pageType} />
+        <ProductCard view={view} pageType={pageType} />
+        <ProductCard view={view} pageType={pageType} />
+        <ProductCard view={view} pageType={pageType} />
+        <ProductCard view={view} pageType={pageType} />
+        <ProductCard view={view} pageType={pageType} />
+        <ProductCard view={view} pageType={pageType} />
+        <ProductCard view={view} pageType={pageType} />
       </div>
     </div>
   );

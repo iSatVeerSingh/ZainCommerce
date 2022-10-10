@@ -1,9 +1,9 @@
 import MainLayout from '../../components/Layouts/MainLayout';
-import ProductsPage from '../../components/Products/ProductsPage';
+import ListProductsPage from '../../components/Products/ListProductsPage';
 
 const Products = () => {
   return (
-    <ProductsPage />
+    <ListProductsPage />
   );
 };
 

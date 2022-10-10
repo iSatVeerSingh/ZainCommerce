@@ -15,7 +15,7 @@ const FilterBox = () => {
     <div className='grid grid-cols-5 gap-2 text-center sm:w-[400px]'>
       <div
         role={'button'}
-        className='px-5 py-2 border-ecom-01 border-2 font-medium lg:hidden'
+        className='py-2 border-ecom-01 border-2 font-medium lg:hidden'
         onClick={() => dispatch(toogle(true))}
       >
         <span>Filter</span>

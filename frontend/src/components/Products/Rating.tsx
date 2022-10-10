@@ -1,20 +1,27 @@
-import { BsFillCheckCircleFill, BsStarFill } from 'react-icons/bs';
+import { AiFillStar } from 'react-icons/ai';
 
 type RatingProps = {
+  pageType: string;
   view: string;
 };
 
-const Rating = ({view}: RatingProps) => {
+const Rating = ({ view, pageType }: RatingProps) => {
   return (
-    <div className={`flex mt-2 ${view === 'list' ? 'flex-col gap-1 md:flex-row': 'gap-2'}`}>
-      <div className='flex items-center gap-1 text-yellow-600'>
-        <BsStarFill size='10px' />
-        <BsStarFill size='10px' />
-        <BsStarFill size='10px' />
-        <BsStarFill size='10px' />
-        <BsStarFill size='10px' />
+    <div
+      className={`${
+        pageType === 'products' && view === 'list'
+          ? 'md:flex md:items-center md:gap-2'
+          : 'flex items-center gap-2'
+      }`}
+    >
+      <div className='flex items-center text-ecom-06'>
+        <AiFillStar />
+        <AiFillStar />
+        <AiFillStar />
+        <AiFillStar />
+        <AiFillStar />
       </div>
-      <p className='text-gray-500 text-sm'>Reviews (4)</p>
+      <span className='text-ecom-02 text-sm'>Rating (5)</span>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { FilterToogle } from './types';
 
 const initialState: FilterToogle = {
   isOpen: false,
-  view: 'grid',
+  view: 'list',
 };
 
 export const filterToggleSlice = createSlice({
