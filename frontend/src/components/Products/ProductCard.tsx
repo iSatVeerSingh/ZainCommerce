@@ -1,60 +1,55 @@
+import { PageView } from '../../types';
 import ButtonAddCart from '../Buttons/ButtonAddCart';
 import CustomImg from '../Images/CustomImg';
 import Price from './Price';
 import Rating from './Rating';
 import Stock from './Stock';
+import { ProductType } from '../../types';
 
-type ProductCardProps = {
-  imageUrl: string;
-  rating?: string | number;
-  title: string;
-  actualPriceOld?: string | number;
-  sellingPrice: string | number;
-  inStock?: boolean;
-  view: 'grid' | 'list';
-  pageType: string;
-};
+type ProductCardProps = ProductType & PageView;
 
 const ProductCard = ({
-  view,
   pageType,
-  imageUrl,
-  rating,
-  title,
-  actualPriceOld,
-  sellingPrice,
+  view,
   inStock,
+  imgUrl,
+  rating,
+  ratingCount,
+  title,
+  actualPrice,
+  sellingPrice,
+  discount,
 }: ProductCardProps) => {
   return (
     <div className='border border-ecom-01 p-2 flex flex-col'>
-      <Stock
-        inStock={inStock}
-        className={`${
-          pageType === 'products' && view === 'list' ? 'self-end' : 'self-start'
-        }`}
-      />
+      <Stock inStock={inStock} view={view} pageType={pageType} />
       <div
         className={`${
-          pageType === 'products' && view === 'list' ? 'flex' : ''
+          pageType === 'products' && view === 'list' ? 'flex gap-4' : ''
         }`}
       >
         <div>
           <div
             className={`${
               pageType === 'products' && view === 'list'
-                ? 'min-w-[120px] h-32 sm:min-w-[160px] sm:h-36 md:min-w-[220px] md:h-40 lg:min-w-[260px] lg:h-48'
+                ? 'min-w-[120px] h-32 mb-2 sm:min-w-[160px] sm:h-36 md:min-w-[220px] md:h-40 lg:min-w-[260px] lg:h-48'
                 : 'h-32'
             }`}
           >
-            <CustomImg src={imageUrl} />
+            <CustomImg src={imgUrl} />
           </div>
-          <Rating view={view} pageType={pageType} rating={rating} />
+          <Rating
+            view={view}
+            pageType={pageType}
+            rating={rating}
+            ratingCount={ratingCount}
+          />
         </div>
         <div className={`mt-1`}>
           <p className={`leading-tight`}>{title}</p>
           <Price
             view={view}
-            actualPrice={actualPriceOld}
+            actualPrice={actualPrice}
             sellingPrice={sellingPrice}
           />
           <ButtonAddCart

@@ -1,12 +1,14 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../services/store';
+import { ProductType } from '../../types';
 import ProductCard from './ProductCard';
 
 type ProductsGridProps = {
-  pageType: 'products' | string;
+  pageType: string;
+  products?: any[];
 };
 
-const ProductsGrid = ({ pageType }: ProductsGridProps) => {
+const ProductsGrid = ({ pageType, products }: ProductsGridProps) => {
   const view = useSelector((state: RootState) => state.filterToggle.view);
 
   return (
@@ -20,46 +22,21 @@ const ProductsGrid = ({ pageType }: ProductsGridProps) => {
             : 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'
         }`}
       >
-        <ProductCard
-          view={view}
-          pageType={pageType}
-          imageUrl='/images/pro1.png'
-          title='MSI CREATOR 17 A10SFS-240AU 17 UHD 4K HDR Thin Bezel Intel 10th'
-          inStock={true}
-          sellingPrice={12348}
-          actualPriceOld={32232}
-          rating={5}
-        />
-        <ProductCard
-          view={view}
-          pageType={pageType}
-          imageUrl='/images/pro1.png'
-          title='MSI CREATOR 17 A10SFS-240AU 17 UHD 4K HDR Thin Bezel Intel 10th'
-          inStock={true}
-          sellingPrice={12348}
-          actualPriceOld={32232}
-          rating={5}
-        />
-        <ProductCard
-          view={view}
-          pageType={pageType}
-          imageUrl='/images/pro1.png'
-          title='MSI CREATOR 17 A10SFS-240AU 17 UHD 4K HDR Thin Bezel Intel 10th'
-          inStock={true}
-          sellingPrice={12348}
-          actualPriceOld={32232}
-          rating={5}
-        />
-        <ProductCard
-          view={view}
-          pageType={pageType}
-          imageUrl='/images/pro1.png'
-          title='MSI CREATOR 17 A10SFS-240AU 17 UHD 4K HDR Thin Bezel Intel 10th'
-          inStock={true}
-          sellingPrice={12348}
-          actualPriceOld={32232}
-          rating={5}
-        />
+        {products?.map((product) => (
+          <ProductCard
+            key={product?.id}
+            view={view}
+            pageType={pageType}
+            inStock={product?.stock ? true : false}
+            title={product?.title}
+            imgUrl={product?.thumbnail || product?.images[0]}
+            id={product?.id}
+            actualPrice={product?.price}
+            sellingPrice={product?.price}
+            rating={product?.rating}
+            ratingCount={5}
+          />
+        ))}
       </div>
     </div>
   );

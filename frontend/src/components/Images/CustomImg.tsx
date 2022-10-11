@@ -8,7 +8,7 @@ type CustomImgProps = {
 const CustomImg = ({ src, alt }: CustomImgProps) => {
   return (
     <div className='relative w-full h-full'>
-      <Image src={src} alt={alt} layout='fill' objectFit='contain' />
+      <Image src={src} alt={alt} layout='fill' objectFit='contain' priority />
     </div>
   );
 };
