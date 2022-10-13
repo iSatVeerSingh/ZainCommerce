@@ -5,7 +5,11 @@ import 'swiper/css/navigation';
 import ProductCard from '../Products/ProductCard';
 import SectionHeading from '../Sections/SectionHeading';
 
-const Carousel = () => {
+type CarouselProps = {
+  products?: any[];
+};
+
+const Carousel = ({ products }: CarouselProps) => {
   return (
     <div className='mt-2'>
       <SectionHeading />
@@ -41,27 +45,21 @@ const Carousel = () => {
           },
         }}
       >
-        <SwiperSlide>
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductCard />
-        </SwiperSlide>
+        {products?.map((product) => (
+          <SwiperSlide key={product?.id}>
+            <ProductCard
+              key={product?.id}
+              inStock={product?.stock ? true : false}
+              title={product?.title}
+              imgUrl={product?.thumbnail || product?.images[0]}
+              id={product?.id}
+              actualPrice={product?.price}
+              sellingPrice={product?.price}
+              rating={product?.rating}
+              ratingCount={5}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

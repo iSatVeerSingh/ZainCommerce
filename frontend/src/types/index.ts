@@ -1,6 +1,6 @@
 export interface PageView {
   pageType?: string;
-  view: 'grid' | 'list';
+  view?: 'grid' | 'list';
 }
 
 export interface ProductType {

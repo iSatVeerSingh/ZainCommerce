@@ -5,6 +5,8 @@ import Price from './Price';
 import Rating from './Rating';
 import Stock from './Stock';
 import { ProductType } from '../../types';
+import IconButtonOutline from '../Buttons/IconButtonOuline';
+import { FiHeart } from 'react-icons/fi';
 
 type ProductCardProps = ProductType & PageView;
 
@@ -21,7 +23,7 @@ const ProductCard = ({
   discount,
 }: ProductCardProps) => {
   return (
-    <div className='border border-ecom-01 p-2 flex flex-col'>
+    <div className='border border-ecom-01 p-2 flex flex-col relative'>
       <Stock inStock={inStock} view={view} pageType={pageType} />
       <div
         className={`${
@@ -32,9 +34,9 @@ const ProductCard = ({
           <div
             className={`${
               pageType === 'products' && view === 'list'
-                ? 'min-w-[120px] h-32 mb-2 sm:min-w-[160px] sm:h-36 md:min-w-[220px] md:h-40 lg:min-w-[260px] lg:h-48'
+                ? 'min-w-[120px] h-32 sm:min-w-[160px] sm:h-36 md:min-w-[220px] md:h-40 lg:min-w-[260px] lg:h-48'
                 : 'h-32'
-            }`}
+            } mb-2`}
           >
             <CustomImg src={imgUrl} />
           </div>
@@ -46,7 +48,11 @@ const ProductCard = ({
           />
         </div>
         <div className={`mt-1`}>
-          <p className={`leading-tight`}>{title}</p>
+          <p className={`leading-tight`}>
+            {view !== 'list' && title?.length > 30
+              ? title.substring(0, 30)
+              : title}
+          </p>
           <Price
             view={view}
             actualPrice={actualPrice}
@@ -60,6 +66,9 @@ const ProductCard = ({
             }`}
           />
         </div>
+      </div>
+      <div className='absolute bottom-2 right-2 z-20'>
+        <IconButtonOutline>{<FiHeart size='20px' />}</IconButtonOutline>
       </div>
     </div>
   );

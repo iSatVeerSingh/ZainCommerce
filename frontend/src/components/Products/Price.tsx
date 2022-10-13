@@ -1,5 +1,5 @@
 type PriceProps = {
-  view: string;
+  view?: string;
   actualPrice?: string | number;
   sellingPrice: string | number;
 };
