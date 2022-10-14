@@ -12,7 +12,8 @@ module.exports = {
         'ecom-03': '#666666',
         'ecom-04': '#F5F7FF',
         'ecom-05': '#0156FF',
-        'ecom-06': '#E9A426'
+        'ecom-06': '#E9A426',
+        'ecom-07': '#EBEBEB'
       },
     },
   },

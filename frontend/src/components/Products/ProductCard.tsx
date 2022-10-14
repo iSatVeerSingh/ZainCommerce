@@ -68,7 +68,7 @@ const ProductCard = ({
         </div>
       </div>
       <div className='absolute bottom-2 right-2 z-20'>
-        <IconButtonOutline>{<FiHeart size='20px' />}</IconButtonOutline>
+        <IconButtonOutline>{<FiHeart size={view === 'grid' ? '15px': '20px'} />}</IconButtonOutline>
       </div>
     </div>
   );

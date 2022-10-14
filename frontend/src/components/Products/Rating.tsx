@@ -29,7 +29,7 @@ const Rating = ({ view, pageType, rating, ratingCount }: RatingProps) => {
         </div>
       )}
       {ratingCount && (
-        <span className='text-ecom-02 text-sm'>Rating ({ratingCount})</span>
+        <span className='text-ecom-02 text-sm'>({ratingCount})</span>
       )}
     </div>
   );
